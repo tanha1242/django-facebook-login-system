@@ -6,20 +6,23 @@ run the project : cd "C:\Users\Asus\Django project\registration"
 ## 📸 Screenshots
 ### 🔐 Login Page
 ![Login Screenshot](ss/login.png)
-![Login Screenshot](ss/login1.png)
+![Login1 Screenshot](ss/login1.png)
 ### 🔐 Signup Page
-![Signin Screenshot](ss/signup.png)
-![Signin Screenshot](ss/signup1.png)
+![Signup Screenshot](ss/signup.png)
+![Signup2 Screenshot](ss/signup2.png)
 ### 🏠 Home Page
 ![Home Screenshot](ss/home.png)
-![Home Screenshot](ss/home1.png)
+![Home1 Screenshot](ss/home1.png)
 
 [![Home Screenshot](ss/home.png)](https://github.com/tanha1242/django-facebook-login-system/tree/main/ss)
 <p align="center">
 
   <img src="ss/login.png" width="300" />
+  <img src="ss/login1.png" width="300" />
     <img src="ss/signup.png" width="300" />
+    <img src="ss/signup2.png" width="300" />
     <img src="ss/home.png" width="300" />
+     <img src="ss/home1.png" width="300" />
 </p>
 
 
