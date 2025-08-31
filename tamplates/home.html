@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facebook Home (Sample)</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #e9ecef;
+      color: white;
+    }
+    header {
+      background: #0e0f0f;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+    }
+    header h1 {
+      color: #1877f2;
+      font-size: 22px;
+    }
+    .icons {
+      display: flex;
+      gap: 15px;
+      font-size: 20px;
+    }
+    .story-section {
+      display: flex;
+      overflow-x: auto;
+      background: #242526;
+      padding: 10px;
+      gap: 10px;
+    }
+    .story {
+      width: 120px;
+      height: 200px;
+      background: #3a3b3c;
+      border-radius: 10px;
+      flex-shrink: 0;
+      text-align: center;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .post {
+      background: #111212;
+      margin: 10px;
+      border-radius: 10px;
+      padding: 10px;
+    }
+    .post img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+    .post-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .profile-pic {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: gray;
+    }
+    .post-actions {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 10px;
+      border-top: 1px solid #3a3b3c;
+      padding-top: 8px;
+      color: #b0b3b8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+<header>
+  <h1>facebook</h1>
+  <div class="icons">
+    <span>🏠</span>
+    <span>👥</span>
+    <span>🔔</span>
+    <a href="{% url 'logout' %}" style="color:white;">Logout</a>
+  </div>
+</header>
+
+
+  <!-- Stories -->
+  <div class="story-section">
+    <div class="story">Create Story</div>
+    <div class="story">
+        
+      <img src="{% static 'hi2.jpg' %}" alt="Story 1" style="width:100%;height:100%;border-radius:10px;">
+    </div>
+    <div class="story">
+      <img src="{% static 'tanha.jpg' %}" alt="Story 2" style="width:100%;height:100%;border-radius:10px;">
+    </div>
+    <div class="story">
+      <img src="{% static 'hi1.jpg' %}" alt="Story 3" style="width:100%;height:100%;border-radius:10px;">
+    </div>
+  </div>
+
+  <!-- Post -->
+  <div class="post">
+    <div class="post-header">
+      <div class="profile-pic">
+        <img src="{% static 'tanha.jpg' %}" alt="Profile" style="width:100%;height:100%;border-radius:50%;">
+      </div>
+      <div>
+        <b>Sumaiya Islam Manisha</b><br>
+        <small>19 min ago</small>
+      </div>
+    </div>
+    <p>
+      Thank you so much Former chair Afroza Sultana apu for special treat ✨
+      Next year treat dibe Rahenuma Raiyan Haider 🙌
+    </p>
+    <img src="{% static 'hi2.jpg' %}" alt="Post image">
+    <div class="post-actions">
+      <span>👍 Like</span>
+      <span>💬 Comment</span>
+      <span>↪ Share</span>
+    </div>
+  </div>
+    <!-- Post -->
+  <div class="post">
+    <div class="post-header">
+      <div class="profile-pic">
+        <img src="{% static 'hi1.jpg' %}" alt="Profile" style="width:100%;height:100%;border-radius:50%;">
+      </div>
+      <div>
+        <b>Tanha amin</b><br>
+        <small>19 min ago</small>
+      </div>
+    </div>
+    <p>
+      Thank you so much ✨
+     
+    </p>
+    <img src="{% static 'hi1.jpg' %}" alt="Post image">
+    <div class="post-actions">
+      <span>👍 Like</span>
+      <span>💬 Comment</span>
+      <span>↪ Share</span>
+    </div>
+  </div>
+
+
+</body>
+</html>

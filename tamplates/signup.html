@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sign Up - Social</title>
+  <style>
+    :root { --fb: #1877f2; --bg: #f0f2f5; --card: #fff; --muted: #606770; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:Helvetica, Arial; background: var(--bg); display:flex; flex-direction:column; align-items:center; min-height:100vh; }
+    header { width:100%; background:var(--card); box-shadow:0 1px 4px rgba(0,0,0,0.1); padding:12px 20px; }
+    header h1 { margin:0; font-size:32px; color:var(--fb); }
+    .container { margin-top:24px; width:432px; background:var(--card); border-radius:8px; box-shadow:0 2px 12px rgba(0,0,0,.1); padding:16px; }
+    .container h2 { margin:0; font-size:24px; font-weight:600; }
+    .container p { margin:4px 0 16px; color:var(--muted); }
+    form { display:flex; flex-direction:column; gap:10px; }
+    .row { display:flex; gap:8px; }
+    input, select { padding:10px; border:1px solid #ccd0d5; border-radius:6px; font-size:15px; flex:1; }
+    .dob-label, .gender-label { font-size:13px; color:var(--muted); margin:4px 0; }
+    .gender-row { display:flex; gap:8px; }
+    .gender-option { flex:1; border:1px solid #ccd0d5; border-radius:6px; padding:6px 10px; display:flex; justify-content:space-between; align-items:center; }
+    button { margin-top:10px; padding:10px; font-size:17px; font-weight:bold; border:none; border-radius:6px; color:#fff; background:#00a400; cursor:pointer; }
+    button:hover { background:#009000; }
+    .small { margin-top:12px; font-size:12px; color:var(--muted); }
+    .small a { color: var(--fb); text-decoration:none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>facebook</h1>
+  </header>
+
+  <div class="container">
+    <h2>Create a new account</h2>
+    <p>It’s quick and easy.</p>
+
+    <!-- Form -->
+    <form method="POST" id="signupForm">
+      {% csrf_token %}
+      
+      <div class="row">
+        <input type="text" id="firstName" name="firstName" placeholder="First name" required>
+        <input type="text" id="lastName" name="lastName" placeholder="Surname" required>
+      </div>
+      <input type="email" id="signupEmail" name="signupEmail" placeholder="Mobile number or email" required>
+      <input type="password" id="signupPassword" name="signupPassword" placeholder="New password" required>
+      <input type="password" id="signupPassword2" name="signupPassword2" placeholder="Confirm password" required>
+
+      <div class="dob-label">Date of birth</div>
+      <div class="row">
+        <select id="dobDay" name="dobDay" required><option value="">Day</option></select>
+        <select id="dobMonth" name="dobMonth" required><option value="">Month</option></select>
+        <select id="dobYear" name="dobYear" required><option value="">Year</option></select>
+      </div>
+
+      <div class="gender-label">Gender</div>
+      <div class="gender-row">
+        <label class="gender-option">Female <input type="radio" name="gender" value="female" required></label>
+        <label class="gender-option">Male <input type="radio" name="gender" value="male"></label>
+        <label class="gender-option">Other <input type="radio" name="gender" value="other"></label>
+      </div>
+
+      <button type="submit">Sign Up</button>
+    </form>
+
+    <div class="small">
+      Already have an account? <a href="{% url 'login' %}">Log in</a>
+    </div>
+  </div>
+
+  <script>
+    const day = document.getElementById('dobDay');
+    const month = document.getElementById('dobMonth');
+    const year = document.getElementById('dobYear');
+
+    for (let d=1; d<=31; d++) day.append(new Option(d,d));
+    ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+        .forEach((m,i)=> month.append(new Option(m,i+1)));
+    const now = new Date();
+    for(let y=now.getFullYear(); y>=1905; y--) year.append(new Option(y,y));
+  </script>
+</body>
+</html>
